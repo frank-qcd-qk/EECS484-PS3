@@ -44,8 +44,12 @@ W1 = zeros(kmap_rows,kmap_cols);
 [nmaps,dummy] = size(kmaps) %how many maps do we have?  should be same as
 %number of kernel elements
 %build a W matrix as the weighted sum of kernel maps
-
-% ! FIX ME!!!
+%***
+for k = 1:nmaps
+    W1 = W1 +kmaps{k}*kernel_vec(k)
+end
+%***
+% ! FIXing!!!
 %this W matrix operations on a strung-out image vector, and it yields a
 %strung-out feature map
 

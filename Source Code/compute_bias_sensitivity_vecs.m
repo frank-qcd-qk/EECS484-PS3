@@ -20,6 +20,11 @@ bias_sensitivity_vecs{L_layers} = deltas_L;
 
 %now apply recursion:
 for l = L_layers-1:-1:1
-  % ! FIX ME!!!!
-    bias_sensitivity_vecs{l} = deltas_l;
+  % ! FIXing!!!!
+  %***  
+  x_vecs_L = all_x_vecs{l};
+  phi_prime_L_vecs = fnc_phi_prime(phi_codes{1},x_vecs_L);
+  deltas_L = W_matrices{l+1}'*deltas_L.*phi_prime_L_vecs;
+  %***
+  bias_sensitivity_vecs{l} = deltas_L;
 end
