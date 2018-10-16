@@ -12,6 +12,6 @@ for kk=1:n_kmaps
 end
 
 %here is the key line: dE_dkvec depends on mapmat and dE_dW
-dE_dkvec = (mapmat*SOH(dE_dW)'); % ! FIXing!!!
+dE_dkvec = (mapmat*SOH(dE_dW)'); % ! FIXed!!!
 
 

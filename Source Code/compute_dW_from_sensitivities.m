@@ -11,18 +11,18 @@ dW_matrices = cell(L_layers,1);
     deltas = bias_sensitivity_vecs{1};
     dW = deltas(:,1)*training_patterns(:,1)';
     dW_cum = dW;
-    % ! FIXing!!! add a loop to accumulate effects of all stimulus patterns
+    % ! FIXed!!! add a loop to accumulate effects of all stimulus patterns
     %***
     for p = 2:P
-        dW = deltas(:,p)*training_patterns(:,p)'
-        dW_cum = dW_cum + dW
+        dW = deltas(:,p)*training_patterns(:,p)';
+        dW_cum = dW_cum + dW;
     end
     %***
     dW_matrices{1} = dW_cum;
     
     %all the rest of the layers:
     for layer=2:L_layers
-        % ! FIXing!!! install correct computation
+        % ! FIXed!!! install correct computation
         %***
         deltas = bias_sensitivity_vecs{layer};
         dW = deltas(:,1)*all_x_vecs{layer-1}(:,1)';

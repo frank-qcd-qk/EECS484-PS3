@@ -20,7 +20,7 @@ bias_sensitivity_vecs{L_layers} = deltas_L;
 
 %now apply recursion:
 for l = L_layers-1:-1:1
-  % ! FIXing!!!!
+  % ! FIXed!!!!
   %***  
   x_vecs_L = all_x_vecs{l};
   phi_prime_L_vecs = fnc_phi_prime(phi_codes{l},x_vecs_L);
