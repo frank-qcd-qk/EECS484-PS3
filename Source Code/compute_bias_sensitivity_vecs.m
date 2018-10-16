@@ -23,7 +23,7 @@ for l = L_layers-1:-1:1
   % ! FIXing!!!!
   %***  
   x_vecs_L = all_x_vecs{l};
-  phi_prime_L_vecs = fnc_phi_prime(phi_codes{1},x_vecs_L);
+  phi_prime_L_vecs = fnc_phi_prime(phi_codes{l},x_vecs_L);
   deltas_L = W_matrices{l+1}'*deltas_L.*phi_prime_L_vecs;
   %***
   bias_sensitivity_vecs{l} = deltas_L;
